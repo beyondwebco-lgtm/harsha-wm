@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { BUSINESS_DATA } from "@/data/business";
 
 export default function FAQSection() {
@@ -17,10 +17,10 @@ export default function FAQSection() {
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
             Frequently Asked Questions
           </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Clear Answers to Common Questions
           </h2>
           <p className="mt-3 text-slate-600 text-sm leading-relaxed">
@@ -28,30 +28,43 @@ export default function FAQSection() {
           </p>
         </div>
 
-        {/* Clean Accordion List */}
-        <div className="divide-y divide-slate-200 border-y border-slate-200">
+        {/* Accordion List with Rotating Plus/Minus Icon & Active Left Border */}
+        <div className="space-y-3">
           {BUSINESS_DATA.faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div key={idx} className="py-4">
+              <div
+                key={idx}
+                className={`border rounded-2xl overflow-hidden transition-all duration-200 ${
+                  isOpen
+                    ? "bg-blue-50/50 border-blue-400 border-l-4 border-l-blue-600 shadow-2xs"
+                    : "bg-white border-slate-200 hover:border-slate-300"
+                }`}
+              >
                 <button
                   type="button"
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full text-left p-5 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-semibold text-slate-900">
+                  <span
+                    className={`text-sm sm:text-base font-bold leading-snug transition-colors ${
+                      isOpen ? "text-blue-900" : "text-slate-900"
+                    }`}
+                  >
                     {faq.q}
                   </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-blue-600" : ""
+                  <div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                      isOpen ? "bg-blue-600 text-white rotate-180" : "bg-slate-100 text-slate-600"
                     }`}
-                  />
+                  >
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                  </div>
                 </button>
 
                 {isOpen && (
-                  <div className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed pr-6">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-blue-100/60 pt-3">
                     {faq.a}
                   </div>
                 )}

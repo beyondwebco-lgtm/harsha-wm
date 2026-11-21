@@ -1,45 +1,70 @@
 import { BUSINESS_DATA } from "@/data/business";
 
 export default function BrandsSection() {
-  return (
-    <section className="py-16 bg-slate-50 border-b border-slate-200/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">
-            Supported Appliances
-          </p>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            Multi-Brand Washing Machine Repair in Hyderabad
-          </h2>
-          <p className="mt-2 text-xs text-slate-600">
-            Independent repair and maintenance support for popular domestic washing machine brands.
-          </p>
-        </div>
+  const rowOneBrands = BUSINESS_DATA.brands.slice(0, 5);
+  const rowTwoBrands = BUSINESS_DATA.brands.slice(5, 10);
 
-        {/* Minimal Responsive Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 max-w-4xl mx-auto">
-          {BUSINESS_DATA.brands.map((brand) => (
+  // Duplicate for seamless infinite marquee loop
+  const marqueeRowOne = [...rowOneBrands, ...rowOneBrands, ...rowOneBrands, ...rowOneBrands];
+  const marqueeRowTwo = [...rowTwoBrands, ...rowTwoBrands, ...rowTwoBrands, ...rowTwoBrands];
+
+  return (
+    <section className="py-16 bg-slate-50 border-b border-slate-200/80 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-8 text-center">
+        <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1.5">
+          Supported Brands
+        </p>
+        <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          Multi-Brand Washing Machine Repair in Hyderabad
+        </h2>
+        <p className="mt-1.5 text-xs text-slate-600 max-w-lg mx-auto">
+          Independent diagnostic and doorstep service support for all major domestic appliance models.
+        </p>
+      </div>
+
+      {/* Infinite Slow Marquee: Row 1 (Leftward) */}
+      <div className="relative w-full overflow-hidden py-2">
+        <div className="animate-marquee gap-3 flex">
+          {marqueeRowOne.map((brand, idx) => (
             <div
-              key={brand.name}
-              className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-slate-300 transition-colors"
+              key={`row1-${idx}`}
+              className="bg-white border border-slate-200 hover:border-blue-500 rounded-xl px-5 py-3 shadow-2xs hover:shadow-sm hover:-translate-y-1 transition-all duration-200 cursor-default shrink-0 flex items-center gap-2.5"
             >
-              <span className="font-semibold text-sm text-slate-800 tracking-wide block">
+              <span className="font-extrabold text-sm text-slate-900 tracking-wide">
                 {brand.name}
               </span>
-              <span className="text-[11px] text-slate-500 block mt-0.5">
+              <span className="text-[10px] text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
                 Repair & Service
               </span>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Subtle Disclaimer */}
-        <p className="text-[11px] text-slate-500 text-center mt-6 italic max-w-xl mx-auto">
+      {/* Infinite Slow Marquee: Row 2 (Rightward) */}
+      <div className="relative w-full overflow-hidden py-2 mt-1">
+        <div className="animate-marquee-reverse gap-3 flex">
+          {marqueeRowTwo.map((brand, idx) => (
+            <div
+              key={`row2-${idx}`}
+              className="bg-white border border-slate-200 hover:border-blue-500 rounded-xl px-5 py-3 shadow-2xs hover:shadow-sm hover:-translate-y-1 transition-all duration-200 cursor-default shrink-0 flex items-center gap-2.5"
+            >
+              <span className="font-extrabold text-sm text-slate-900 tracking-wide">
+                {brand.name}
+              </span>
+              <span className="text-[10px] text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                Repair & Service
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Statutory Disclaimer */}
+      <div className="max-w-3xl mx-auto px-4 mt-6 text-center">
+        <p className="text-[11px] text-slate-500 italic leading-relaxed">
           * Independent multi-brand appliance repair service. Brand names and trademarks are used solely to identify supported appliances and do not imply direct affiliation or authorization.
         </p>
-
       </div>
     </section>
   );
