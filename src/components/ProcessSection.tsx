@@ -24,12 +24,12 @@ export default function ProcessSection() {
           {BUSINESS_DATA.steps.map((step) => (
             <div
               key={step.step}
-              className="bg-white border border-slate-200 rounded-xl p-6 flex flex-col justify-between"
+              className="bg-white border border-slate-200 rounded-xl p-6 flex flex-col justify-between hover:border-blue-300 hover:shadow-xs transition-all"
             >
               <div>
-                <span className="text-xs font-mono font-semibold text-blue-600 block mb-3">
-                  Step {step.step}
-                </span>
+                <div className="w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center mb-4 shadow-xs">
+                  {step.step}
+                </div>
 
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   {step.title}
@@ -47,7 +47,7 @@ export default function ProcessSection() {
         <div className="mt-10 text-center">
           <a
             href="#booking"
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors shadow-xs"
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors shadow-xs"
           >
             <span>Book a Technician Visit</span>
             <ArrowRight className="w-4 h-4" />

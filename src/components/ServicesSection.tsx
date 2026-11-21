@@ -22,6 +22,7 @@ export default function ServicesSection() {
         {/* 6 Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {BUSINESS_DATA.services.map((service) => {
+            const isFeatured = service.id === "general-service";
             const serviceWhatsAppUrl = buildWhatsAppLink(
               `Service Inquiry for ${service.title}`,
               undefined,
@@ -31,12 +32,18 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.id}
-                className="bg-white border border-slate-200 rounded-xl p-6 flex flex-col justify-between hover:border-slate-300 transition-colors"
+                className={`bg-white rounded-xl p-6 flex flex-col justify-between transition-all duration-200 ${
+                  isFeatured
+                    ? "border-2 border-blue-600 shadow-md relative"
+                    : "border border-slate-200 hover:border-blue-400 hover:shadow-sm"
+                }`}
               >
                 <div>
-                  <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
-                    <span className="font-medium text-slate-700">{service.type}</span>
-                    <span>{service.badge}</span>
+                  <div className="flex items-center justify-between text-xs mb-3">
+                    <span className="font-semibold bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded">
+                      {service.type}
+                    </span>
+                    <span className="text-slate-500 font-medium">{service.badge}</span>
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 leading-snug">
@@ -48,7 +55,7 @@ export default function ServicesSection() {
                   </p>
 
                   <div className="mt-5 pt-4 border-t border-slate-100">
-                    <p className="text-xs font-semibold text-slate-800 mb-2.5">
+                    <p className="text-xs font-semibold text-slate-900 mb-2.5">
                       Common repairs:
                     </p>
                     <ul className="space-y-1.5 text-xs text-slate-600">
@@ -65,7 +72,7 @@ export default function ServicesSection() {
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                   <a
                     href={`tel:${BUSINESS_DATA.phoneRaw}`}
-                    className="text-xs font-medium text-slate-700 hover:text-slate-900"
+                    className="text-xs font-medium text-slate-700 hover:text-blue-600 transition-colors"
                   >
                     Call: {BUSINESS_DATA.phoneDisplay}
                   </a>

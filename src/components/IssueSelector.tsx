@@ -43,24 +43,24 @@ export default function IssueSelector() {
                 onClick={() => setSelectedIssueId(problem.id)}
                 className={`text-left p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? "bg-white border-blue-600 shadow-xs"
-                    : "bg-white border-slate-200 hover:border-slate-300"
+                    ? "bg-white border-2 border-blue-600 shadow-sm"
+                    : "bg-white border-slate-200 hover:border-blue-400 hover:bg-blue-50/20"
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span
-                      className={`text-[11px] font-medium ${
-                        isSelected ? "text-blue-600 font-semibold" : "text-slate-400"
+                      className={`text-[11px] font-semibold ${
+                        isSelected ? "text-blue-600" : "text-slate-400"
                       }`}
                     >
-                      {isSelected ? "Selected" : "Select"}
+                      {isSelected ? "Selected" : "Select Issue"}
                     </span>
                     {isSelected && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                      <span className="w-2 h-2 rounded-full bg-blue-600"></span>
                     )}
                   </div>
-                  <h3 className="font-semibold text-sm text-slate-900 leading-snug">
+                  <h3 className="font-bold text-sm text-slate-900 leading-snug">
                     {problem.title}
                   </h3>
                   <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
@@ -72,20 +72,21 @@ export default function IssueSelector() {
           })}
         </div>
 
-        {/* Selected Issue Clean Action Box */}
-        <div className="mt-8 bg-white border border-slate-200 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-1 max-w-xl">
-            <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
-              Selected Issue
+        {/* Selected Issue High-Contrast Action Box with Deep Navy/Blue Background */}
+        <div className="mt-8 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-md">
+          <div className="space-y-1.5 max-w-xl">
+            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+              <span>Selected Problem Diagnosis</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
               {selectedIssue.title}
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-300 leading-relaxed">
               {selectedIssue.shortDesc}
             </p>
-            <p className="text-xs text-slate-500 pt-1">
-              Visiting charge ₹350 · General service ₹600 · Parts quoted separately
+            <p className="text-xs text-blue-300/90 pt-1">
+              Visiting charge ₹350 · General service ₹600 · Direct doorstep assistance
             </p>
           </div>
 
@@ -94,17 +95,17 @@ export default function IssueSelector() {
               href={generatedWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-3 rounded-lg transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-3.5 rounded-lg transition-colors shadow-sm"
             >
-              <span>Inquire on WhatsApp</span>
+              <span>WhatsApp This Problem</span>
               <ArrowRight className="w-4 h-4" />
             </a>
 
             <a
               href={`tel:${BUSINESS_DATA.phoneRaw}`}
-              className="inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-700 text-sm font-medium px-4 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold px-4 py-3.5 rounded-lg transition-colors border border-white/10"
             >
-              <Phone className="w-4 h-4 text-slate-600" />
+              <Phone className="w-4 h-4 text-blue-300" />
               <span>Call Technician</span>
             </a>
           </div>

@@ -1,3 +1,4 @@
+import { MapPin } from "lucide-react";
 import { BUSINESS_DATA } from "@/data/business";
 
 export default function ServiceAreasSection() {
@@ -18,26 +19,27 @@ export default function ServiceAreasSection() {
           </p>
         </div>
 
-        {/* Locality Chips Grid */}
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8">
-          <div className="flex flex-wrap gap-2">
+        {/* Locality Chips Grid with subtle Blue Tint */}
+        <div className="bg-blue-50/40 border border-blue-100 rounded-2xl p-6 sm:p-8">
+          <div className="flex flex-wrap gap-2.5">
             {BUSINESS_DATA.localities.map((locality) => (
               <span
                 key={locality}
-                className="bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-md text-xs font-medium cursor-default"
+                className="bg-white border border-slate-200/90 text-slate-800 hover:border-blue-400 hover:text-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-default shadow-2xs"
               >
-                {locality}
+                <MapPin className="w-3 h-3 text-blue-600" />
+                <span>{locality}</span>
               </span>
             ))}
           </div>
 
-          <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
+          <div className="mt-6 pt-5 border-t border-blue-200/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-600">
             <p>
               * Indicative service localities shown. Availability for your specific apartment, colony, or gated community is confirmed upon booking.
             </p>
             <a
               href={`tel:${BUSINESS_DATA.phoneRaw}`}
-              className="font-medium text-slate-900 hover:text-blue-600 shrink-0"
+              className="font-bold text-blue-600 hover:underline shrink-0"
             >
               Confirm Locality: {BUSINESS_DATA.phoneDisplay}
             </a>

@@ -20,26 +20,26 @@ export default function Header() {
 
   return (
     <>
-      {/* Subtle Top Utility Bar */}
-      <div className="bg-slate-50 border-b border-slate-200/80 text-xs text-slate-600 py-2 px-4">
+      {/* Top Utility Bar with Deep Navy Frame */}
+      <div className="bg-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-900">
-              {BUSINESS_DATA.experienceYears} Years Experience
+            <span className="bg-blue-600 text-white text-[11px] font-semibold px-2 py-0.5 rounded">
+              {BUSINESS_DATA.experienceYears} Years Exp
             </span>
-            <span className="text-slate-300">·</span>
-            <span className="hidden sm:inline text-slate-600">
-              Hyderabad Doorstep Washing Machine Repair
+            <span className="text-slate-400">·</span>
+            <span className="hidden sm:inline text-slate-300">
+              Doorstep Washing Machine Repair Across Hyderabad
             </span>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline text-slate-500">{BUSINESS_DATA.workingHours}</span>
+            <span className="hidden md:inline text-slate-400">{BUSINESS_DATA.workingHours}</span>
             <a
               href={`tel:${BUSINESS_DATA.phoneRaw}`}
-              className="inline-flex items-center gap-1.5 font-medium text-slate-900 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-1.5 font-semibold text-blue-400 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-blue-600" />
+              <Phone className="w-3.5 h-3.5" />
               <span>{BUSINESS_DATA.phoneDisplay}</span>
             </a>
           </div>
@@ -53,12 +53,12 @@ export default function Header() {
             
             {/* Logo */}
             <Link href="#" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center">
-                <Wrench className="w-4 h-4 text-blue-400" />
+              <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-xs">
+                <Wrench className="w-4 h-4 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="text-base font-bold text-slate-900 tracking-tight leading-none">
-                  Harsha Service Centre
+                  Harsha <span className="text-blue-600">Service Centre</span>
                 </span>
                 <span className="text-[11px] text-slate-500 font-normal leading-tight mt-0.5">
                   Washing Machine Repair · Hyderabad
@@ -72,7 +72,7 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="hover:text-slate-900 transition-colors"
+                  className="hover:text-blue-600 transition-colors"
                 >
                   {link.name}
                 </a>
@@ -83,13 +83,14 @@ export default function Header() {
             <div className="hidden sm:flex items-center gap-3">
               <a
                 href={`tel:${BUSINESS_DATA.phoneRaw}`}
-                className="text-sm font-medium text-slate-700 hover:text-slate-900 px-3 py-2 transition-colors"
+                className="text-sm font-semibold text-slate-800 hover:text-blue-600 px-3 py-2 transition-colors flex items-center gap-1.5"
               >
-                {BUSINESS_DATA.phoneDisplay}
+                <Phone className="w-3.5 h-3.5 text-blue-600" />
+                <span>{BUSINESS_DATA.phoneDisplay}</span>
               </a>
               <a
                 href="#booking"
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-xs"
+                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-xs"
               >
                 Book a Service
               </a>
@@ -116,7 +117,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-2 py-1.5 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded transition-colors"
+                  className="px-2 py-1.5 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50/50 rounded transition-colors"
                 >
                   {link.name}
                 </a>

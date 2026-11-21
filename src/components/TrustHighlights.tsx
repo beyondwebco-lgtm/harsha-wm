@@ -17,11 +17,11 @@ export default function TrustHighlights() {
           {BUSINESS_DATA.highlights.map((item, index) => {
             const Icon = highlightIcons[index % highlightIcons.length];
             return (
-              <div key={item.title} className="space-y-2">
-                <div className="w-8 h-8 rounded-md bg-white border border-slate-200 text-slate-700 flex items-center justify-center">
-                  <Icon className="w-4 h-4 text-blue-600" />
+              <div key={item.title} className="space-y-2.5">
+                <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-xs">
+                  <Icon className="w-4 h-4 text-white" />
                 </div>
-                <h3 className="text-sm font-semibold text-slate-900">
+                <h3 className="text-sm font-bold text-slate-900">
                   {item.title}
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">

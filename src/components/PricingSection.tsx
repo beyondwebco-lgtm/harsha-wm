@@ -26,7 +26,7 @@ export default function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           
           {/* Card 1: Visiting Charge */}
-          <div className="bg-white border border-slate-200 rounded-xl p-8 flex flex-col justify-between hover:border-slate-300 transition-colors">
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-400 hover:shadow-sm transition-all">
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Doorstep Diagnostic Visit
@@ -36,10 +36,10 @@ export default function PricingSection() {
               </h3>
 
               <div className="mt-4 mb-6 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-slate-900">
+                <span className="text-4xl sm:text-5xl font-extrabold text-slate-900">
                   ₹350
                 </span>
-                <span className="text-xs text-slate-500 font-medium">/ visit</span>
+                <span className="text-xs text-slate-500 font-medium">/ doorstep visit</span>
               </div>
 
               <p className="text-xs text-slate-600 leading-relaxed mb-6">
@@ -71,18 +71,22 @@ export default function PricingSection() {
                 href={whatsappVisitingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-slate-400 bg-white text-slate-800 font-medium py-3 rounded-lg text-sm transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-blue-600 hover:text-blue-600 bg-white text-slate-800 font-semibold py-3.5 rounded-lg text-sm transition-colors"
               >
                 <span>Book Visiting Inspection</span>
-                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <ArrowRight className="w-4 h-4 text-blue-600" />
               </a>
             </div>
           </div>
 
-          {/* Card 2: General Service */}
-          <div className="bg-slate-50 border border-slate-300 rounded-xl p-8 flex flex-col justify-between hover:border-slate-400 transition-colors">
+          {/* Card 2: General Service with Blue Accent Theme */}
+          <div className="bg-blue-50/40 border-2 border-blue-600 rounded-2xl p-8 flex flex-col justify-between shadow-md relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+              Recommended
+            </div>
+
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+              <div className="text-xs font-semibold uppercase tracking-wider text-blue-700">
                 Full Maintenance Service
               </div>
               <h3 className="text-xl font-bold text-slate-900 mt-1">
@@ -90,17 +94,17 @@ export default function PricingSection() {
               </h3>
 
               <div className="mt-4 mb-6 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-slate-900">
+                <span className="text-4xl sm:text-5xl font-extrabold text-blue-700">
                   ₹600
                 </span>
-                <span className="text-xs text-slate-500 font-medium">/ machine</span>
+                <span className="text-xs text-slate-600 font-medium">/ machine</span>
               </div>
 
               <p className="text-xs text-slate-600 leading-relaxed mb-6">
                 Complete maintenance check, deep cleaning, and performance calibration to keep your washing machine operating smoothly.
               </p>
 
-              <div className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-700">
+              <div className="space-y-2.5 pt-4 border-t border-blue-200/80 text-xs text-slate-700">
                 <div className="flex items-start gap-2">
                   <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Tub descaling and lint filter thorough clean</span>
@@ -120,12 +124,12 @@ export default function PricingSection() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-200">
+            <div className="mt-8 pt-6 border-t border-blue-200/80">
               <a
                 href={whatsappGeneralUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg text-sm transition-colors shadow-xs"
+                className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 rounded-lg text-sm transition-colors shadow-sm"
               >
                 <span>Book General Service</span>
                 <ArrowRight className="w-4 h-4" />
