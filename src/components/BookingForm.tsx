@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, MessageCircle, CheckCircle2, AlertCircle } from "lucide-react";
+import { Phone, ArrowRight, AlertCircle } from "lucide-react";
 import { BUSINESS_DATA } from "@/data/business";
 
 export default function BookingForm() {
@@ -63,16 +63,16 @@ export default function BookingForm() {
     }
 
     // Format WhatsApp message
-    let message = `*HARSHA WASHING MACHINE SERVICE BOOKING*\n`;
+    let message = `HARSHA WASHING MACHINE SERVICE BOOKING\n`;
     message += `-----------------------------------------\n`;
-    message += `👤 *Customer Name:* ${formData.name.trim()}\n`;
-    message += `📞 *Phone Number:* ${formData.phone.trim()}\n`;
-    message += `📍 *Area / Locality:* ${formData.locality.trim()}, Hyderabad\n`;
-    message += `🏷️ *Brand:* ${formData.brand}\n`;
-    message += `⚙️ *Machine Type:* ${formData.machineType}\n`;
-    message += `🔧 *Problem / Service:* ${formData.problem.trim()}\n`;
+    message += `Customer Name: ${formData.name.trim()}\n`;
+    message += `Phone Number: ${formData.phone.trim()}\n`;
+    message += `Area / Locality: ${formData.locality.trim()}, Hyderabad\n`;
+    message += `Brand: ${formData.brand}\n`;
+    message += `Machine Type: ${formData.machineType}\n`;
+    message += `Problem / Service: ${formData.problem.trim()}\n`;
     if (formData.visitDate) {
-      message += `📅 *Preferred Date:* ${formData.visitDate}\n`;
+      message += `Preferred Date: ${formData.visitDate}\n`;
     }
     message += `-----------------------------------------\n`;
     message += `Please confirm technician visit and timing.`;
@@ -82,32 +82,30 @@ export default function BookingForm() {
   };
 
   return (
-    <section id="booking" className="py-16 sm:py-24 bg-white relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="booking" className="py-20 bg-slate-50 border-b border-slate-200/80">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block bg-[#082B59] text-[#FFD600] text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Fast Doorstep Booking
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#082B59] tracking-tight">
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
+            Schedule Appointment
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
             Book Your Washing Machine Repair
           </h2>
-          <p className="mt-3.5 text-base text-gray-600 leading-relaxed font-normal">
-            Fill in your details below to instantly generate your service booking on WhatsApp. Our technician will coordinate directly with you.
+          <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+            Enter your details below to generate an instant service inquiry for our technician on WhatsApp.
           </p>
         </div>
 
-        {/* Booking Card Container */}
-        <div className="bg-[#F5F9FD] rounded-2xl p-6 sm:p-10 border-2 border-[#082B59]/20 shadow-xl">
-          
-          <form onSubmit={handleFormSubmit} className="space-y-6">
+        {/* Form Container */}
+        <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
+          <form onSubmit={handleFormSubmit} className="space-y-5">
             
-            {/* Row 1: Name and Phone */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
-                  Your Name *
+                <label className="block text-xs font-medium text-slate-700 mb-1">
+                  Full Name *
                 </label>
                 <input
                   type="text"
@@ -115,8 +113,8 @@ export default function BookingForm() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Ramesh Kumar"
-                  className={`w-full px-4 py-3 rounded-xl bg-white border text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2] ${
-                    errors.name ? "border-red-500" : "border-gray-200"
+                  className={`w-full px-3.5 py-2.5 rounded-lg border text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 ${
+                    errors.name ? "border-red-500" : "border-slate-300"
                   }`}
                 />
                 {errors.name && (
@@ -128,7 +126,7 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1">
                   Phone Number *
                 </label>
                 <input
@@ -137,8 +135,8 @@ export default function BookingForm() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="e.g. 9876543210"
-                  className={`w-full px-4 py-3 rounded-xl bg-white border text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2] ${
-                    errors.phone ? "border-red-500" : "border-gray-200"
+                  className={`w-full px-3.5 py-2.5 rounded-lg border text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 ${
+                    errors.phone ? "border-red-500" : "border-slate-300"
                   }`}
                 />
                 {errors.phone && (
@@ -150,9 +148,8 @@ export default function BookingForm() {
               </div>
             </div>
 
-            {/* Row 2: Hyderabad Locality */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1">
                 Area / Locality in Hyderabad *
               </label>
               <input
@@ -160,9 +157,9 @@ export default function BookingForm() {
                 name="locality"
                 value={formData.locality}
                 onChange={handleInputChange}
-                placeholder="e.g. Kukatpally / Miyapur / Gachibowli / Secunderabad"
-                className={`w-full px-4 py-3 rounded-xl bg-white border text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2] ${
-                  errors.locality ? "border-red-500" : "border-gray-200"
+                placeholder="e.g. Kukatpally, Miyapur, Gachibowli, Secunderabad"
+                className={`w-full px-3.5 py-2.5 rounded-lg border text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 ${
+                  errors.locality ? "border-red-500" : "border-slate-300"
                 }`}
               />
               {errors.locality && (
@@ -173,17 +170,16 @@ export default function BookingForm() {
               )}
             </div>
 
-            {/* Row 3: Brand & Machine Type */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
-                  Washing Machine Brand *
+                <label className="block text-xs font-medium text-slate-700 mb-1">
+                  Brand *
                 </label>
                 <select
                   name="brand"
                   value={formData.brand}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2]"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                 >
                   {brandsList.map((brand) => (
                     <option key={brand} value={brand}>
@@ -194,14 +190,14 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1">
                   Machine Type *
                 </label>
                 <select
                   name="machineType"
                   value={formData.machineType}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2]"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                 >
                   {machineTypes.map((type) => (
                     <option key={type} value={type}>
@@ -212,10 +208,9 @@ export default function BookingForm() {
               </div>
             </div>
 
-            {/* Row 4: Problem Description */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
-                Problem / Service Required *
+              <label className="block text-xs font-medium text-slate-700 mb-1">
+                Problem Description *
               </label>
               <textarea
                 name="problem"
@@ -223,8 +218,8 @@ export default function BookingForm() {
                 value={formData.problem}
                 onChange={handleInputChange}
                 placeholder="e.g. Drum not spinning, making loud grinding noise during spin cycle, or water leaking from front."
-                className={`w-full px-4 py-3 rounded-xl bg-white border text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2] ${
-                  errors.problem ? "border-red-500" : "border-gray-200"
+                className={`w-full px-3.5 py-2.5 rounded-lg border text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 ${
+                  errors.problem ? "border-red-500" : "border-slate-300"
                 }`}
               />
               {errors.problem && (
@@ -235,9 +230,8 @@ export default function BookingForm() {
               )}
             </div>
 
-            {/* Row 5: Preferred Visit Date */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#082B59] mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1">
                 Preferred Visit Date (Optional)
               </label>
               <input
@@ -245,39 +239,33 @@ export default function BookingForm() {
                 name="visitDate"
                 value={formData.visitDate}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1267B2]"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
               />
             </div>
 
-            {/* Notice Note */}
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-xs text-blue-900 flex items-start gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-              <p>
-                Clicking &quot;Book via WhatsApp&quot; will open WhatsApp with your prefilled details to send directly to Harsha Washing Machine Service Centre at <strong>+91 8465801935</strong>. Our technician will confirm the visit with you.
-              </p>
-            </div>
+            <p className="text-xs text-slate-500 pt-1">
+              Submitting opens WhatsApp with your prefilled details to coordinate directly with our service technician.
+            </p>
 
-            {/* Submit & Call Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
-                className="flex-1 inline-flex items-center justify-center gap-2 bg-[#16A34A] hover:bg-[#15803d] text-white font-extrabold py-4 px-6 rounded-xl text-base shadow-lg hover:shadow-green-500/20 transition-all cursor-pointer"
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-sm transition-colors cursor-pointer shadow-xs"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Book via WhatsApp (+91 8465801935)</span>
+                <span>Book via WhatsApp</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
               <a
                 href={`tel:${BUSINESS_DATA.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-2 bg-[#E52332] hover:bg-[#c91826] text-white font-bold py-4 px-6 rounded-xl text-sm shadow-md transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-700 font-medium py-3 px-5 rounded-lg text-sm transition-colors"
               >
-                <Phone className="w-4 h-4" />
-                <span>Direct Call</span>
+                <Phone className="w-4 h-4 text-slate-600" />
+                <span>Call {BUSINESS_DATA.phoneDisplay}</span>
               </a>
             </div>
 
           </form>
-
         </div>
 
       </div>

@@ -3,7 +3,7 @@ import "./globals.css";
 import { BUSINESS_DATA } from "@/data/business";
 
 export const viewport: Viewport = {
-  themeColor: "#082B59",
+  themeColor: "#0F172A",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -110,7 +110,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F5F9FD] text-[#172B4D] selection:bg-[#FFD600] selection:text-[#082B59]">
+      <body className="min-h-full flex flex-col bg-white text-slate-700 selection:bg-blue-600 selection:text-white">
         {children}
       </body>
     </html>

@@ -1,4 +1,4 @@
-import { CheckCircle2, AlertCircle, Phone, MessageCircle } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { BUSINESS_DATA, buildWhatsAppLink } from "@/data/business";
 
 export default function PricingSection() {
@@ -6,170 +6,140 @@ export default function PricingSection() {
   const whatsappVisitingUrl = buildWhatsAppLink("Book Doorstep Visit & Inspection (₹350)");
 
   return (
-    <section id="pricing" className="py-16 sm:py-24 bg-[#F5F9FD]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-20 bg-white border-b border-slate-200/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-block bg-[#082B59] text-[#FFD600] text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Clear & Honest Rates
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#082B59] tracking-tight">
+        <div className="max-w-2xl mb-14">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
+            Transparent Pricing
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
             Washing Machine Service Charges
           </h2>
-          <p className="mt-3.5 text-base text-gray-600 leading-relaxed font-normal">
-            Straightforward pricing with no hidden charges. Confirm applicable charges when booking your technician.
+          <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Straightforward pricing with no hidden charges. Confirm applicable charges when booking your appointment.
           </p>
         </div>
 
-        {/* 2 Prominent Pricing Cards */}
+        {/* 2 Clean Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           
-          {/* Card 1: General Service */}
-          <div className="bg-white rounded-2xl p-7 sm:p-9 shadow-lg border-2 border-[#082B59] flex flex-col justify-between relative overflow-hidden group">
-            <div className="absolute top-0 right-0 bg-[#FFD600] text-[#082B59] text-xs font-black px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
-              Most Popular
-            </div>
-
+          {/* Card 1: Visiting Charge */}
+          <div className="bg-white border border-slate-200 rounded-xl p-8 flex flex-col justify-between hover:border-slate-300 transition-colors">
             <div>
-              <span className="text-xs font-extrabold text-[#1267B2] uppercase tracking-wider">
-                Full Maintenance Check
-              </span>
-              <h3 className="text-2xl font-black text-[#082B59] mt-1">
-                General Service
+              <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Doorstep Diagnostic Visit
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mt-1">
+                Visiting Charges
               </h3>
-              
+
               <div className="mt-4 mb-6 flex items-baseline gap-1">
-                <span className="text-4xl sm:text-5xl font-black text-[#082B59]">
-                  ₹600
+                <span className="text-4xl font-extrabold text-slate-900">
+                  ₹350
                 </span>
-                <span className="text-gray-500 font-semibold text-sm">/- per machine</span>
+                <span className="text-xs text-slate-500 font-medium">/ visit</span>
               </div>
 
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                Comprehensive maintenance check and thorough cleaning to keep your washing machine functioning smoothly and prevent major breakdowns.
+              <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                On-site inspection by an experienced technician to diagnose faults, test internal components, and provide an accurate repair estimate.
               </p>
 
-              <div className="space-y-3 pt-4 border-t border-gray-100 text-xs sm:text-sm text-gray-700">
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+              <div className="space-y-2.5 pt-4 border-t border-slate-100 text-xs text-slate-700">
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                  <span>Doorstep visit anywhere across Hyderabad</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                  <span>Mechanical and electronic fault diagnostics</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                  <span>Inspection of motor, PCB, drain pump, and drum</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                  <span>Clear explanation of needed repairs and parts</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-100">
+              <a
+                href={whatsappVisitingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-slate-400 bg-white text-slate-800 font-medium py-3 rounded-lg text-sm transition-colors"
+              >
+                <span>Book Visiting Inspection</span>
+                <ArrowRight className="w-4 h-4 text-slate-600" />
+              </a>
+            </div>
+          </div>
+
+          {/* Card 2: General Service */}
+          <div className="bg-slate-50 border border-slate-300 rounded-xl p-8 flex flex-col justify-between hover:border-slate-400 transition-colors">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+                Full Maintenance Service
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mt-1">
+                General Service
+              </h3>
+
+              <div className="mt-4 mb-6 flex items-baseline gap-1">
+                <span className="text-4xl font-extrabold text-slate-900">
+                  ₹600
+                </span>
+                <span className="text-xs text-slate-500 font-medium">/ machine</span>
+              </div>
+
+              <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                Complete maintenance check, deep cleaning, and performance calibration to keep your washing machine operating smoothly.
+              </p>
+
+              <div className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-700">
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Tub descaling and lint filter thorough clean</span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Inlet water valve & drain hose blockage check</span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Drum rotation balance & belt tension test</span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                  <span>Electrical wiring and safety earth ground test</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Operational wash & spin cycle test run</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col gap-2.5">
+            <div className="mt-8 pt-6 border-t border-slate-200">
               <a
                 href={whatsappGeneralUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#082B59] hover:bg-[#1267B2] text-white font-bold py-3.5 rounded-xl text-sm transition-colors shadow-md"
+                className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg text-sm transition-colors shadow-xs"
               >
-                <MessageCircle className="w-4 h-4 text-[#FFD600]" />
                 <span>Book General Service</span>
-              </a>
-              <a
-                href={`tel:${BUSINESS_DATA.phoneRaw}`}
-                className="w-full inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-[#082B59] font-bold py-2.5 rounded-xl text-xs transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Call 8465801935 to Schedule</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Card 2: Visiting Charges */}
-          <div className="bg-white rounded-2xl p-7 sm:p-9 shadow-lg border border-gray-200 flex flex-col justify-between relative overflow-hidden group">
-            <div>
-              <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider">
-                Doorstep Diagnostic Visit
-              </span>
-              <h3 className="text-2xl font-black text-[#082B59] mt-1">
-                Visiting Charges
-              </h3>
-              
-              <div className="mt-4 mb-6 flex items-baseline gap-1">
-                <span className="text-4xl sm:text-5xl font-black text-[#082B59]">
-                  ₹350
-                </span>
-                <span className="text-gray-500 font-semibold text-sm">/- per visit</span>
-              </div>
-
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                Doorstep inspection by an experienced technician to diagnose the fault, test internal components, and give you an honest repair estimate.
-              </p>
-
-              <div className="space-y-3 pt-4 border-t border-gray-100 text-xs sm:text-sm text-gray-700">
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                  <span>Doorstep technician visit to your home in Hyderabad</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                  <span>On-site mechanical and electronic fault diagnosis</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                  <span>Inspection of motor, PCB, drain pump, drum & sensors</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                  <span>Clear explanation of needed repairs and spare parts</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                  <span>No obligation to proceed if you choose not to repair</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col gap-2.5">
-              <a
-                href={whatsappVisitingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#E52332] hover:bg-[#c91826] text-white font-bold py-3.5 rounded-xl text-sm transition-colors shadow-md"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Book Doorstep Inspection</span>
-              </a>
-              <a
-                href={`tel:${BUSINESS_DATA.phoneRaw}`}
-                className="w-full inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-[#082B59] font-bold py-2.5 rounded-xl text-xs transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Call 8465801935 for Slot</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
 
         </div>
 
-        {/* Transparent Pricing Disclaimer Note */}
-        <div className="mt-10 max-w-3xl mx-auto bg-amber-50 border border-amber-200/90 rounded-xl p-4 sm:p-5 flex items-start gap-3.5 text-xs sm:text-sm text-amber-900">
-          <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <p className="font-bold">Pricing Clarification:</p>
-            <p className="text-amber-800 leading-relaxed font-normal">
-              {BUSINESS_DATA.pricing.disclaimer}
-            </p>
-          </div>
+        {/* Pricing Clarification Note */}
+        <div className="mt-8 max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-lg p-4 text-xs text-slate-600 leading-relaxed">
+          <p>
+            <strong className="text-slate-800">Note:</strong> {BUSINESS_DATA.pricing.disclaimer}
+          </p>
         </div>
 
       </div>

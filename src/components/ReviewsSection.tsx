@@ -1,71 +1,49 @@
-import { ExternalLink, Award, CheckCircle2 } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { BUSINESS_DATA } from "@/data/business";
 
 export default function ReviewsSection() {
   return (
-    <section className="py-16 sm:py-24 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-slate-50 border-b border-slate-200/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block bg-[#082B59] text-[#FFD600] text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Verified Reputation
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#082B59] tracking-tight">
-            Customer Experiences & Local Presence
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
+            Verified Business
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+            Customer Experiences & Google Profile
           </h2>
-          <p className="mt-3.5 text-base text-gray-600 leading-relaxed font-normal">
-            Committed to honest service and technical excellence across Hyderabad households for over 8 years.
+          <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Serving households across Hyderabad with dedicated doorstep washing machine repair and maintenance for over 8 years.
           </p>
         </div>
 
-        {/* Authentic Google Profile Showcase Card */}
-        <div className="max-w-3xl mx-auto bg-[#F5F9FD] rounded-2xl p-6 sm:p-10 border border-blue-200/90 shadow-md text-center">
-          
-          <div className="w-16 h-16 rounded-2xl bg-[#082B59] text-[#FFD600] mx-auto flex items-center justify-center shadow-md mb-5">
-            <Award className="w-8 h-8" />
-          </div>
-
-          <h3 className="text-xl sm:text-2xl font-black text-[#082B59]">
+        {/* Clean Showcase Box */}
+        <div className="bg-white border border-slate-200 rounded-xl p-8 max-w-3xl">
+          <h3 className="text-lg font-bold text-slate-900">
             Harsha Washing Machine Service Centre
           </h3>
-
-          <p className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto mt-2 leading-relaxed">
-            Registered on Google Business Profile serving Hyderabad and Secunderabad localities with professional doorstep washing machine repair and maintenance.
+          
+          <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+            Registered on Google Business Profile serving residential colonies, apartments, and commercial areas throughout Hyderabad and Secunderabad.
           </p>
 
-          <div className="my-6 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-[#082B59]">
-            <span className="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-gray-200 shadow-2xs">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-              8+ Years Serving Hyderabad
-            </span>
-            <span className="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-gray-200 shadow-2xs">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-              Doorstep Service All Areas
-            </span>
-            <span className="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-gray-200 shadow-2xs">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-              Multi-Brand Diagnostic Support
-            </span>
-          </div>
+          <div className="mt-6 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="text-xs text-slate-500">
+              8+ Years Experience · Doorstep Service All Areas
+            </div>
 
-          {/* Direct CTA to Google Business Profile */}
-          <div className="pt-2">
             <a
               href={BUSINESS_DATA.googleBusinessProfile}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#082B59] hover:bg-[#1267B2] text-white font-extrabold px-6 py-3.5 rounded-xl text-sm shadow-md transition-all hover:shadow-lg"
+              className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium px-4 py-2.5 rounded-lg transition-colors"
             >
-              <span>View Our Google Business Profile</span>
-              <ExternalLink className="w-4 h-4 text-[#FFD600]" />
+              <span>View Google Business Profile</span>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
             </a>
           </div>
-
-          <p className="text-[11px] text-gray-500 mt-4">
-            Click above to view our verified Google profile, location updates, and service details.
-          </p>
-
         </div>
 
       </div>

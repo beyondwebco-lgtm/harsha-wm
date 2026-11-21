@@ -12,51 +12,46 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-[#F5F9FD]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-20 bg-white border-b border-slate-200/80">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block bg-[#082B59] text-[#FFD600] text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Clear Answers
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#082B59] tracking-tight">
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
             Frequently Asked Questions
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+            Clear Answers to Common Questions
           </h2>
-          <p className="mt-3.5 text-base text-gray-600 leading-relaxed font-normal">
-            Everything you need to know about booking and receiving washing machine repairs from Harsha Washing Machine Service Centre.
+          <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+            Everything you need to know about scheduling doorstep washing machine repairs with Harsha Service Centre.
           </p>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-3.5">
+        {/* Clean Accordion List */}
+        <div className="divide-y divide-slate-200 border-y border-slate-200">
           {BUSINESS_DATA.faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
-                key={idx}
-                className="bg-white rounded-xl border border-gray-200/90 shadow-2xs overflow-hidden transition-all duration-200"
-              >
+              <div key={idx} className="py-4">
                 <button
                   type="button"
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-gray-50/80 transition-colors"
+                  className="w-full text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-[#082B59] leading-snug">
+                  <span className="text-sm sm:text-base font-semibold text-slate-900">
                     {faq.q}
                   </span>
-                  <div
-                    className={`w-7 h-7 rounded-full bg-blue-50 text-[#082B59] flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 bg-[#082B59] text-white" : ""
+                  <ChevronDown
+                    className={`w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-blue-600" : ""
                     }`}
-                  >
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
+                  />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                  <div className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed pr-6">
                     {faq.a}
                   </div>
                 )}
