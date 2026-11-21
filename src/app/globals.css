@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary-navy: #082B59;
+    --secondary-blue: #1267B2;
+    --service-yellow: #FFD600;
+    --cta-red: #E52332;
+    --light-bg: #F5F9FD;
+    --dark-text: #172B4D;
+    --success-green: #16A34A;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    background-color: #F5F9FD;
+    color: #172B4D;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom utility colors */
+.bg-navy-900 { background-color: #082B59; }
+.bg-navy-800 { background-color: #0b3770; }
+.bg-blue-600 { background-color: #1267B2; }
+.bg-blue-50 { background-color: #F5F9FD; }
+.bg-yellow-400 { background-color: #FFD600; }
+.bg-red-600 { background-color: #E52332; }
+
+.text-navy-900 { color: #082B59; }
+.text-navy-800 { color: #0b3770; }
+.text-blue-600 { color: #1267B2; }
+.text-yellow-400 { color: #FFD600; }
+.text-yellow-500 { color: #E6C200; }
+.text-red-600 { color: #E52332; }
+.text-dark-text { color: #172B4D; }
+
+.border-navy-900 { border-color: #082B59; }
+.border-blue-600 { border-color: #1267B2; }
+.border-yellow-400 { border-color: #FFD600; }
+.border-red-600 { border-color: #E52332; }
+
+/* Custom animation classes */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.98; transform: scale(1.01); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s infinite ease-in-out;
+}
